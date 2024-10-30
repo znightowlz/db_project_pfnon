@@ -1,0 +1,669 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>หน้ากรอกฟอร์มเข้าฐานข้อมูล</title>
+
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@300;400;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://themewagon.github.io/mazer/dist/assets/css/bootstrap.css">
+
+    <link rel="stylesheet" href="https://themewagon.github.io/mazer/dist/assets/vendors/perfect-scrollbar/perfect-scrollbar.css">
+    <link rel="stylesheet" href="https://themewagon.github.io/mazer/dist/assets/vendors/bootstrap-icons/bootstrap-icons.css">
+    <link rel="stylesheet" href="https://themewagon.github.io/mazer/dist/assets/css/app.css">
+    <link rel="shortcut icon" href="https://themewagon.github.io/mazer/dist/assets/images/favicon.svg" type="image/x-icon">
+</head>
+
+<body>
+    <div id="app">
+        <div id="sidebar" class="active">
+            <div class="sidebar-wrapper active">
+                <div class="sidebar-header">
+                    <div class="d-flex justify-content-between">
+                        <div class="logo">
+                            <a href="/DashTotalComTest" class="card-title">UK company data</a>
+                        </div>
+                        <div class="toggler">
+                            <a href="#" class="sidebar-hide d-xl-none d-block"><i class="bi bi-x bi-middle"></i></a>
+                        </div>
+                    </div>
+                </div>
+                <div class="sidebar-menu">
+                    <ul class="menu">
+                        <li class="sidebar-item  has-sub ">
+                            <a href="#" class='sidebar-link'>
+                                <i class="bi bi-bar-chart-fill"></i>
+                                <span>Dashboard</span>
+                            </a>
+                            <ul class="submenu ">
+                                <!-- <li class="submenu-item ">
+                                    <a href="/Dashboradtest/{company_id}">Specific company</a>
+                                </li> -->
+                                <li class="submenu-item ">
+                                    <a href="/DashTotalComTest">Total chart all company</a>
+                                </li>
+                            </ul>
+                        </li>
+
+
+                        <li class="sidebar-item  ">
+                            <a href="/top10" class='sidebar-link'>
+                                <i class="bi bi-align-top"></i>
+                                <span>Top 10 investor</span>
+                            </a>
+                        </li>
+                        <li class="sidebar-title">Menu</li>
+
+                        <!-- <li class="sidebar-item  ">
+                            <a href="index.html" class='sidebar-link'>
+                                <i class="bi bi-grid-fill"></i>
+                                <span>Dashboard</span>
+                            </a>
+                        </li> -->
+
+                        <!-- <li class="sidebar-item  has-sub">
+                            <a href="#" class='sidebar-link'>
+                                <i class="bi bi-stack"></i>
+                                <span>Components</span>
+                            </a>
+                            <ul class="submenu ">
+                                <li class="submenu-item ">
+                                    <a href="component-alert.html">Alert</a>
+                                </li>
+                                <li class="submenu-item ">
+                                    <a href="component-badge.html">Badge</a>
+                                </li>
+                                <li class="submenu-item ">
+                                    <a href="component-breadcrumb.html">Breadcrumb</a>
+                                </li>
+                                <li class="submenu-item ">
+                                    <a href="component-button.html">Button</a>
+                                </li>
+                                <li class="submenu-item ">
+                                    <a href="component-card.html">Card</a>
+                                </li>
+                                <li class="submenu-item ">
+                                    <a href="component-carousel.html">Carousel</a>
+                                </li>
+                                <li class="submenu-item ">
+                                    <a href="component-dropdown.html">Dropdown</a>
+                                </li>
+                                <li class="submenu-item ">
+                                    <a href="component-list-group.html">List Group</a>
+                                </li>
+                                <li class="submenu-item ">
+                                    <a href="component-modal.html">Modal</a>
+                                </li>
+                                <li class="submenu-item ">
+                                    <a href="component-navs.html">Navs</a>
+                                </li>
+                                <li class="submenu-item ">
+                                    <a href="component-pagination.html">Pagination</a>
+                                </li>
+                                <li class="submenu-item ">
+                                    <a href="component-progress.html">Progress</a>
+                                </li>
+                                <li class="submenu-item ">
+                                    <a href="component-spinner.html">Spinner</a>
+                                </li>
+                                <li class="submenu-item ">
+                                    <a href="component-tooltip.html">Tooltip</a>
+                                </li>
+                            </ul>
+                        </li> -->
+
+                        <!-- <li class="sidebar-item  has-sub">
+                            <a href="#" class='sidebar-link'>
+                                <i class="bi bi-collection-fill"></i>
+                                <span>Extra Components</span>
+                            </a>
+                            <ul class="submenu ">
+                                <li class="submenu-item ">
+                                    <a href="extra-component-avatar.html">Avatar</a>
+                                </li>
+                                <li class="submenu-item ">
+                                    <a href="extra-component-sweetalert.html">Sweet Alert</a>
+                                </li>
+                                <li class="submenu-item ">
+                                    <a href="extra-component-toastify.html">Toastify</a>
+                                </li>
+                                <li class="submenu-item ">
+                                    <a href="extra-component-rating.html">Rating</a>
+                                </li>
+                                <li class="submenu-item ">
+                                    <a href="extra-component-divider.html">Divider</a>
+                                </li>
+                            </ul>
+                        </li> -->
+
+                        <!-- <li class="sidebar-item  has-sub">
+                            <a href="#" class='sidebar-link'>
+                                <i class="bi bi-grid-1x2-fill"></i>
+                                <span>Layouts</span>
+                            </a>
+                            <ul class="submenu ">
+                                <li class="submenu-item ">
+                                    <a href="layout-default.html">Default Layout</a>
+                                </li>
+                                <li class="submenu-item ">
+                                    <a href="layout-vertical-1-column.html">1 Column</a>
+                                </li>
+                                <li class="submenu-item ">
+                                    <a href="layout-vertical-navbar.html">Vertical with Navbar</a>
+                                </li>
+                                <li class="submenu-item ">
+                                    <a href="layout-horizontal.html">Horizontal Menu</a>
+                                </li>
+                            </ul>
+                        </li> -->
+
+                        <!-- <li class="sidebar-title">Forms &amp; Tables</li> -->
+
+                        <!-- <li class="sidebar-item  has-sub">
+                            <a href="#" class='sidebar-link'>
+                                <i class="bi bi-hexagon-fill"></i>
+                                <span>Form Elements</span>
+                            </a>
+                            <ul class="submenu ">
+                                <li class="submenu-item ">
+                                    <a href="form-element-input.html">Input</a>
+                                </li>
+                                <li class="submenu-item ">
+                                    <a href="form-element-input-group.html">Input Group</a>
+                                </li>
+                                <li class="submenu-item ">
+                                    <a href="form-element-select.html">Select</a>
+                                </li>
+                                <li class="submenu-item ">
+                                    <a href="form-element-radio.html">Radio</a>
+                                </li>
+                                <li class="submenu-item ">
+                                    <a href="form-element-checkbox.html">Checkbox</a>
+                                </li>
+                                <li class="submenu-item ">
+                                    <a href="form-element-textarea.html">Textarea</a>
+                                </li>
+                            </ul>
+                        </li> -->
+
+
+                        <li class="sidebar-item  has-sub active">
+                            <a href="#" class='sidebar-link'>
+                                <i class="bi bi-menu-button-wide-fill"></i>
+                                <span>Tables & form</span>
+                            </a>
+                            <ul class="submenu ">
+                                <li class="submenu-item ">
+
+                                    <a href="/table">Tables</a>
+                                </li>
+
+                                <li class="submenu-item ">
+                                    <a href="/create">Create company form</a>
+                                </li>
+                                <!-- <li class="submenu-item ">
+                                    <a href="/top10">Top 10</a>
+                                </li> -->
+                            </ul>
+                        </li>
+
+
+                        <!-- <li class="sidebar-item  has-sub">
+                            <a href="#" class='sidebar-link'>
+                                <i class="bi bi-egg-fill"></i>
+                                <span>Icons</span>
+                            </a>
+                            <ul class="submenu ">
+                                <li class="submenu-item ">
+                                    <a href="ui-icons-bootstrap-icons.html">Bootstrap Icons </a>
+                                </li>
+                                <li class="submenu-item ">
+                                    <a href="ui-icons-fontawesome.html">Fontawesome</a>
+                                </li>
+                                <li class="submenu-item ">
+                                    <a href="ui-icons-dripicons.html">Dripicons</a>
+                                </li>
+                            </ul>
+                        </li> -->
+
+
+
+
+
+
+
+
+                        <!--                        
+                        <li class="sidebar-item  ">
+                            <a href="/create" class='sidebar-link'>
+                                <i class="bi bi-pen-fill"></i>
+                                <span>Create company form</span>
+                            </a>
+                        </li>
+
+                        <li class="sidebar-item  ">
+                            <a href="/table" class='sidebar-link'>
+                                <i class="bi bi-file-earmark-spreadsheet-fill"></i>
+                                <span>Table</span>
+                            </a>
+                        </li> -->
+
+                        <!-- <li class="sidebar-item  has-sub">
+                            <a href="#" class='sidebar-link'>
+                                <i class="bi bi-pen-fill"></i>
+                                <span>Form Editor</span>
+                            </a>
+                            <ul class="submenu ">
+                                <li class="submenu-item ">
+                                    <a href="form-editor-quill.html">Quill</a>
+                                </li>
+                                <li class="submenu-item ">
+                                    <a href="form-editor-ckeditor.html">CKEditor</a>
+                                </li>
+                                <li class="submenu-item ">
+                                    <a href="form-editor-summernote.html">Summernote</a>
+                                </li>
+                                <li class="submenu-item ">
+                                    <a href="form-editor-tinymce.html">TinyMCE</a>
+                                </li>
+                            </ul>
+                        </li> -->
+
+                        <!-- <li class="sidebar-item  ">
+                            <a href="/top10" class='sidebar-link'>
+                                <i class="bi bi-align-top"></i>
+                                <span>Top 10 investor</span>
+                            </a>
+                        </li>
+
+                        -->
+
+                        <!-- <li class="sidebar-title">Dashboard</li> -->
+
+                        <!-- <li class="sidebar-item  has-sub">
+                            <a href="#" class='sidebar-link'>
+                                <i class="bi bi-pentagon-fill"></i>
+                                <span>Widgets</span>
+                            </a>
+                            <ul class="submenu ">
+                                <li class="submenu-item ">
+                                    <a href="ui-widgets-chatbox.html">Chatbox</a>
+                                </li>
+                                <li class="submenu-item ">
+                                    <a href="ui-widgets-pricing.html">Pricing</a>
+                                </li>
+                                <li class="submenu-item ">
+                                    <a href="ui-widgets-todolist.html">To-do List</a>
+                                </li>
+                            </ul>
+                        </li> -->
+
+                        <!-- <li class="sidebar-item  has-sub">
+                            <a href="#" class='sidebar-link'>
+                                <i class="bi bi-egg-fill"></i>
+                                <span>Icons</span>
+                            </a>
+                            <ul class="submenu ">
+                                <li class="submenu-item ">
+                                    <a href="ui-icons-bootstrap-icons.html">Bootstrap Icons </a>
+                                </li>
+                                <li class="submenu-item ">
+                                    <a href="ui-icons-fontawesome.html">Fontawesome</a>
+                                </li>
+                                <li class="submenu-item ">
+                                    <a href="ui-icons-dripicons.html">Dripicons</a>
+                                </li>
+                            </ul>
+                        </li> -->
+
+
+
+                        <!-- <li class="sidebar-item  ">
+                            <a href="ui-file-uploader.html" class='sidebar-link'>
+                                <i class="bi bi-cloud-arrow-up-fill"></i>
+                                <span>File Uploader</span>
+                            </a>
+                        </li> -->
+
+                        <!-- <li class="sidebar-item  has-sub">
+                            <a href="#" class='sidebar-link'>
+                                <i class="bi bi-map-fill"></i>
+                                <span>Maps</span>
+                            </a>
+                            <ul class="submenu ">
+                                <li class="submenu-item ">
+                                    <a href="ui-map-google-map.html">Google Map</a>
+                                </li>
+                                <li class="submenu-item ">
+                                    <a href="ui-map-jsvectormap.html">JS Vector Map</a>
+                                </li>
+                            </ul>
+                        </li> -->
+
+                        <!-- <li class="sidebar-title">Login & Register</li> -->
+
+                        <!-- <li class="sidebar-item  ">
+                            <a href="application-email.html" class='sidebar-link'>
+                                <i class="bi bi-envelope-fill"></i>
+                                <span>Email Application</span>
+                            </a>
+                        </li>
+
+                        <li class="sidebar-item  ">
+                            <a href="application-chat.html" class='sidebar-link'>
+                                <i class="bi bi-chat-dots-fill"></i>
+                                <span>Chat Application</span>
+                            </a>
+                        </li>
+
+                        <li class="sidebar-item  ">
+                            <a href="application-gallery.html" class='sidebar-link'>
+                                <i class="bi bi-image-fill"></i>
+                                <span>Photo Gallery</span>
+                            </a>
+                        </li>
+
+                        <li class="sidebar-item  ">
+                            <a href="application-checkout.html" class='sidebar-link'>
+                                <i class="bi bi-basket-fill"></i>
+                                <span>Checkout Page</span>
+                            </a>
+                        </li> -->
+
+                        <li class="sidebar-title">Authentication</li>
+                        <li class="sidebar-item  has-sub">
+                            <a href="#" class='sidebar-link'>
+                                <i class="bi bi-person-badge-fill"></i>
+                                <span>Login & Register</span>
+                            </a>
+                            <ul class="submenu ">
+                                <li class="submenu-item ">
+                                    <a href="/logintest">Login</a>
+                                </li>
+                                <li class="submenu-item ">
+                                    <a href="/register">Register</a>
+                                </li>
+                            </ul>
+                        </li>
+
+                        <!-- <li class="sidebar-item  has-sub">
+                            <a href="#" class='sidebar-link'>
+                                <i class="bi bi-x-octagon-fill"></i>
+                                <span>Errors</span>
+                            </a>
+                            <ul class="submenu ">
+                                <li class="submenu-item ">
+                                    <a href="error-403.html">403</a>
+                                </li>
+                                <li class="submenu-item ">
+                                    <a href="error-404.html">404</a>
+                                </li>
+                                <li class="submenu-item ">
+                                    <a href="error-500.html">500</a>
+                                </li>
+                            </ul>
+                        </li> -->
+
+                        <!-- <li class="sidebar-title">Raise Support</li>
+
+                        <li class="sidebar-item  ">
+                            <a href="https://zuramai.github.io/mazer/docs" class='sidebar-link'>
+                                <i class="bi bi-life-preserver"></i>
+                                <span>Documentation</span>
+                            </a>
+                        </li>
+
+                        <li class="sidebar-item  ">
+                            <a href="https://github.com/zuramai/mazer/blob/main/CONTRIBUTING.md" class='sidebar-link'>
+                                <i class="bi bi-puzzle"></i>
+                                <span>Contribute</span>
+                            </a>
+                        </li>
+
+                        <li class="sidebar-item  ">
+                            <a href="https://github.com/zuramai/mazer#donate" class='sidebar-link'>
+                                <i class="bi bi-cash"></i>
+                                <span>Donate</span>
+                            </a>
+                        </li> -->
+
+                    </ul>
+                </div>
+                <button class="sidebar-toggler btn x"><i data-feather="x"></i></button>
+            </div>
+        </div>
+        <div id="main">
+            <header class="mb-3">
+                <a href="#" class="burger-btn d-block d-xl-none">
+                    <i class="bi bi-justify fs-3"></i>
+                </a>
+            </header>
+
+            <div class="page-heading">
+                <div class="page-title">
+                    <div class="row">
+                        <div class="col-12 col-md-6 order-md-1 order-last">
+                            <h3>Create a new company!</h3>
+                            <p class="text-subtitle text-muted">ฟอร์มเพิ่มข้อมูลเข้าดาต้าเบส</p>
+                        </div>
+                        <div class="col-12 col-md-6 order-md-2 order-first">
+                            <nav aria-label="breadcrumb" class="breadcrumb-header float-start float-lg-end">
+                                <ol class="breadcrumb">
+                                    <li class="breadcrumb-item"><a href="/table">ไป table</a></li>
+                                    <!-- <li class="breadcrumb-item active" aria-current="page">Form Layout</li> -->
+                                </ol>
+                            </nav>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Basic Horizontal form layout section start -->
+                <section id="basic-horizontal-layouts">
+                    <div class="row match-height">
+                        <div class="col-md-6 col-12">
+                            <div class="card">
+                                <!-- <div class="card-header">
+                                    <h4 class="card-title">กรอกเลยจ้า</h4>
+                                </div> -->
+                                <div class="card-content">
+                                    <div class="card-body">
+                                        <form action="/create" method="post">
+                                            
+                                            <form class="form form-horizontal">
+                                                <div class="form-body">
+                                                    <div class="row">
+                                                        <!-- start กรอกฟอร์ม -->
+                                                        <!--กรอก ID -->
+                                                        <div class="col-md-4">
+                                                            <label>ID</label>
+                                                        </div>
+                                                        <div class="col-md-8 form-group">
+                                                            <input type="number" id="id" class="form-control"
+                                                                name="id" required>
+                                                        </div>
+                                                        <!--กรอก url -->
+                                                        <div class="col-md-4">
+                                                            <label>url</label>
+                                                        </div>
+                                                        <div class="col-md-8 form-group">
+                                                            <input type="text" id="url" class="form-control"
+                                                                name="url" required>
+                                                        </div>
+                                                        <!-- กรอก name -->
+                                                        <div class="col-md-4">
+                                                            <label>name</label>
+                                                        </div>
+                                                        <div class="col-md-8 form-group">
+                                                            <input type="text" id="name" class="form-control"
+                                                                name="name" required>
+                                                        </div>
+                                                        <!--กรอก website -->
+                                                        <div class="col-md-4">
+                                                            <label>website</label>
+                                                        </div>
+                                                        <div class="col-md-8 form-group">
+                                                            <input type="text" id="website" class="form-control"
+                                                                name="website" required>
+                                                        </div>
+                                                        <!-- กรอก people count -->
+                                                        <div class="col-md-4">
+                                                            <label>people_count</label>
+                                                        </div>
+                                                        <div class="col-md-8 form-group">
+                                                            <input type="number" id="people_count" class="form-control"
+                                                                name="people_count" required>
+                                                        </div>
+                                                        <!-- กรอก senior people count -->
+                                                        <div class="col-md-4">
+                                                            <label>senior_people_count</label>
+                                                        </div>
+                                                        <div class="col-md-8 form-group">
+                                                            <input type="number" id="senior_people_count" class="form-control"
+                                                                name="senior_people_count" required>
+                                                        </div>
+                                                        <!--กรอก email count -->
+                                                        <div class="col-md-4">
+                                                            <label>emails_count</label>
+                                                        </div>
+                                                        <div class="col-md-8 form-group">
+                                                            <input type="number" id="emails_count" class="form-control"
+                                                                name="emails_count" required>
+                                                        </div>
+                                                        <!-- กรอก personal email count -->
+                                                        <div class="col-md-4">
+                                                            <label>personal_emails_count</label>
+                                                        </div>
+                                                        <div class="col-md-8 form-group">
+                                                            <input type="number" id="personal_emails_count" class="form-control"
+                                                                name="personal_emails_count" required>
+                                                        </div>
+                                                        <!-- กรอก phone count -->
+                                                        <div class="col-md-4">
+                                                            <label>phones_count</label>
+                                                        </div>
+                                                        <div class="col-md-8 form-group">
+                                                            <input type="number" id="phones_count" class="form-control"
+                                                                name="phones_count" required>
+                                                        </div>
+                                                        <!-- กรอก addresses_count -->
+                                                        <div class="col-md-4">
+                                                            <label>addresses_count</label>
+                                                        </div>
+                                                        <div class="col-md-8 form-group">
+                                                            <input type="number" id="addresses_count" class="form-control"
+                                                                name="addresses_count" required>
+                                                        </div>
+                                                        <!-- กรอก investors_count -->
+                                                        <div class="col-md-4">
+                                                            <label>investors_count</label>
+                                                        </div>
+                                                        <div class="col-md-8 form-group">
+                                                            <input type="number" id="investors_count" class="form-control"
+                                                                name="investors_count" required>
+                                                        </div>
+                                                        <!-- กรอก clients_count -->
+                                                        <div class="col-md-4">
+                                                            <label>clients_count</label>
+                                                        </div>
+                                                        <div class="col-md-8 form-group">
+                                                            <input type="number" id="clients_count" class="form-control"
+                                                                name="clients_count" required>
+                                                        </div>
+                                                        <!--กรอก partners_count -->
+                                                        <div class="col-md-4">
+                                                            <label>partners_count</label>
+                                                        </div>
+                                                        <div class="col-md-8 form-group">
+                                                            <input type="number" id="partners_count" class="form-control"
+                                                                name="partners_count" required>
+                                                        </div>
+                                                        <!-- กรอก changes_count -->
+                                                        <div class="col-md-4">
+                                                            <label>changes_count</label>
+                                                        </div>
+                                                        <div class="col-md-8 form-group">
+                                                            <input type="number" id="changes_count" class="form-control"
+                                                                name="changes_count" required>
+                                                        </div>
+                                                        <!-- กรอก people_changes_count-->
+                                                        <div class="col-md-4">
+                                                            <label>people_changes_count</label>
+                                                        </div>
+                                                        <div class="col-md-8 form-group">
+                                                            <input type="number" id="people_changes_count" class="form-control"
+                                                                name="people_changes_count" required>
+                                                        </div>
+                                                        <!-- กรอก contact_changes_count -->
+                                                        <div class="col-md-4">
+                                                            <label>contact_changes_count</label>
+                                                        </div>
+                                                        <div class="col-md-8 form-group">
+                                                            <input type="number" id="contact_changes_count" class="form-control"
+                                                                name="contact_changes_count" required>
+                                                        </div>
+                                                        <!-- กรอก description_short -->
+                                                        <div class="col-md-4">
+                                                            <label>description_short</label>
+                                                        </div>
+                                                        <div class="col-md-8 form-group">
+                                                            <input type="text" id="description_short" class="form-control"
+                                                                name="description_short" required>
+                                                        </div>
+                                                    
+                                                        <!-- end กรอกฟอร์ม -->
+
+
+
+
+                                                        <!-- ปุ่มนอกฟอร์ม -->
+                                                        <!-- <div class="col-12 col-md-8 offset-md-4 form-group">
+                                                            <div class='form-check'>
+                                                                <div class="checkbox">
+                                                                    <input type="checkbox" id="checkbox1"
+                                                                        class='form-check-input' checked>
+                                                                    <label for="checkbox1">Remember Me</label>
+                                                                </div>
+                                                            </div>
+                                                        </div> -->
+                                                        <div class="col-sm-12 d-flex justify-content-end">
+                                                            <button type="submit"
+                                                                class="btn btn-primary me-1 mb-1">Submit</button>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </form>
+                                        </form>
+                                        
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                    </div>
+                </section>
+                <!-- // Basic Horizontal form layout section end -->
+
+            </div>
+
+            <footer>
+                <div class="footer clearfix mb-0 text-muted">
+                    <div class="float-start">
+                        <p>2021 &copy; Mazer</p>
+                    </div>
+                    <div class="float-end">
+                        <p>Crafted with <span class="text-danger"><i class="bi bi-heart"></i></span> by <a
+                                href="http://ahmadsaugi.com">A. Saugi</a></p>
+                    </div>
+                </div>
+            </footer>
+        </div>
+    </div>
+    <script src="https://themewagon.github.io/mazer/dist/assets/vendors/perfect-scrollbar/perfect-scrollbar.min.js"></script>
+    <script src="https://themewagon.github.io/mazer/dist/assets/js/bootstrap.bundle.min.js"></script>
+
+    <script src="https://themewagon.github.io/mazer/dist/assets/js/main.js"></script>
+</body>
+
+</html>

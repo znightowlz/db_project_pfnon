@@ -1,0 +1,857 @@
+<!--<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Company Totals</title>
+</head>
+<body>
+ 
+    <h1>Company Totals</h1>
+    
+    <p><strong>Total People Count:</strong> {{ total_people_count }}</p>
+    <p><strong>Total Senior People Count:</strong> {{ total_senior_people_count }}</p>
+    <p><strong>Total Emails Count:</strong> {{ total_emails_count }}</p>
+    <p><strong>Total Personal Emails Count:</strong> {{ total_personal_emails_count }}</p>
+    <p><strong>Total Phones Count:</strong> {{ total_phones_count }}</p>
+    <p><strong>Total Addresses Count:</strong> {{ total_addresses_count }}</p>
+    <p><strong>Total Investors Count:</strong> {{ total_investors_count }}</p>
+    <p><strong>Total Clients Count:</strong> {{ total_clients_count }}</p>
+    <p><strong>Total Partners Count:</strong> {{ total_partners_count }}</p>
+    <p><strong>Total Changes People Count:</strong> {{ total_changes_count }}</p>
+    <p><strong>Total People Changes Count:</strong> {{ total_people_changes_count }}</p>
+    <p><strong>Total Contact Changes Count:</strong> {{ total_contact_changes_count }}</p>
+
+    <h1>Search for Company Info by ID</h1>
+    
+  
+    <form action="/DashTotalComTest" method="post">
+        <label for="company_id">Enter Company ID:</label>
+        <input type="number" id="company_id" name="company_id" required>
+        <button type="submit">Search</button>
+    </form>
+
+    <a href="/test">Back to Home</a> 
+
+      
+
+
+</body>
+</html>
+
+-->
+
+
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Total chart all company</title>
+    <script src="https://cdn.jsdelivr.net/npm/apexcharts"></script>
+
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@300;400;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://themewagon.github.io/mazer/dist/assets/css/bootstrap.css">
+
+    <!-- <link rel="stylesheet" href="https://themewagon.github.io/mazer/dist/assets/vendors/apexcharts/apexcharts.css"> -->
+
+    <link rel="stylesheet"
+        href="https://themewagon.github.io/mazer/dist/assets/vendors/perfect-scrollbar/perfect-scrollbar.css">
+    <link rel="stylesheet"
+        href="https://themewagon.github.io/mazer/dist/assets/vendors/bootstrap-icons/bootstrap-icons.css">
+    <link rel="stylesheet" href="https://themewagon.github.io/mazer/dist/assets/css/app.css">
+    <link rel="shortcut icon" href="https://themewagon.github.io/mazer/dist/assets/images/favicon.svg"
+        type="image/x-icon">
+</head>
+
+<body>
+    <div id="app">
+        <div id="sidebar" class="active">
+            <div class="sidebar-wrapper active">
+                <div class="sidebar-header">
+                    <div class="d-flex justify-content-between">
+                        <div class="logo">
+                            <a href="index.html"><img
+                                    src="https://themewagon.github.io/mazer/dist/assets/images/logo/logo.png" alt="Logo"
+                                    srcset=""></a>
+                        </div>
+                        <div class="toggler">
+                            <a href="#" class="sidebar-hide d-xl-none d-block"><i class="bi bi-x bi-middle"></i></a>
+                        </div>
+                    </div>
+                </div>
+                <div class="sidebar-menu">
+                    <ul class="menu">
+                        <li class="sidebar-item  has-sub active">
+                            <a href="#" class='sidebar-link'>
+                                <i class="bi bi-bar-chart-fill"></i>
+                                <span>Dashboard</span>
+                            </a>
+                            <ul class="submenu ">
+                                <li class="submenu-item ">
+                                    <a href="/Dashboradtest/{company_id}">Specific company</a>
+                                </li>
+                                <li class="submenu-item ">
+                                    <a href="/DashTotalComTest">Total chart all company</a>
+                                </li>
+                            </ul>
+                        </li>
+
+
+                        <li class="sidebar-item  ">
+                            <a href="/top10" class='sidebar-link'>
+                                <i class="bi bi-align-top"></i>
+                                <span>Top 10 investor</span>
+                            </a>
+                        </li>
+                        <li class="sidebar-title">Menu</li>
+
+                        <!-- <li class="sidebar-item  ">
+                            <a href="index.html" class='sidebar-link'>
+                                <i class="bi bi-grid-fill"></i>
+                                <span>Dashboard</span>
+                            </a>
+                        </li> -->
+
+                        <!-- <li class="sidebar-item  has-sub">
+                            <a href="#" class='sidebar-link'>
+                                <i class="bi bi-stack"></i>
+                                <span>Components</span>
+                            </a>
+                            <ul class="submenu ">
+                                <li class="submenu-item ">
+                                    <a href="component-alert.html">Alert</a>
+                                </li>
+                                <li class="submenu-item ">
+                                    <a href="component-badge.html">Badge</a>
+                                </li>
+                                <li class="submenu-item ">
+                                    <a href="component-breadcrumb.html">Breadcrumb</a>
+                                </li>
+                                <li class="submenu-item ">
+                                    <a href="component-button.html">Button</a>
+                                </li>
+                                <li class="submenu-item ">
+                                    <a href="component-card.html">Card</a>
+                                </li>
+                                <li class="submenu-item ">
+                                    <a href="component-carousel.html">Carousel</a>
+                                </li>
+                                <li class="submenu-item ">
+                                    <a href="component-dropdown.html">Dropdown</a>
+                                </li>
+                                <li class="submenu-item ">
+                                    <a href="component-list-group.html">List Group</a>
+                                </li>
+                                <li class="submenu-item ">
+                                    <a href="component-modal.html">Modal</a>
+                                </li>
+                                <li class="submenu-item ">
+                                    <a href="component-navs.html">Navs</a>
+                                </li>
+                                <li class="submenu-item ">
+                                    <a href="component-pagination.html">Pagination</a>
+                                </li>
+                                <li class="submenu-item ">
+                                    <a href="component-progress.html">Progress</a>
+                                </li>
+                                <li class="submenu-item ">
+                                    <a href="component-spinner.html">Spinner</a>
+                                </li>
+                                <li class="submenu-item ">
+                                    <a href="component-tooltip.html">Tooltip</a>
+                                </li>
+                            </ul>
+                        </li> -->
+
+                        <!-- <li class="sidebar-item  has-sub">
+                            <a href="#" class='sidebar-link'>
+                                <i class="bi bi-collection-fill"></i>
+                                <span>Extra Components</span>
+                            </a>
+                            <ul class="submenu ">
+                                <li class="submenu-item ">
+                                    <a href="extra-component-avatar.html">Avatar</a>
+                                </li>
+                                <li class="submenu-item ">
+                                    <a href="extra-component-sweetalert.html">Sweet Alert</a>
+                                </li>
+                                <li class="submenu-item ">
+                                    <a href="extra-component-toastify.html">Toastify</a>
+                                </li>
+                                <li class="submenu-item ">
+                                    <a href="extra-component-rating.html">Rating</a>
+                                </li>
+                                <li class="submenu-item ">
+                                    <a href="extra-component-divider.html">Divider</a>
+                                </li>
+                            </ul>
+                        </li> -->
+
+                        <!-- <li class="sidebar-item  has-sub">
+                            <a href="#" class='sidebar-link'>
+                                <i class="bi bi-grid-1x2-fill"></i>
+                                <span>Layouts</span>
+                            </a>
+                            <ul class="submenu ">
+                                <li class="submenu-item ">
+                                    <a href="layout-default.html">Default Layout</a>
+                                </li>
+                                <li class="submenu-item ">
+                                    <a href="layout-vertical-1-column.html">1 Column</a>
+                                </li>
+                                <li class="submenu-item ">
+                                    <a href="layout-vertical-navbar.html">Vertical with Navbar</a>
+                                </li>
+                                <li class="submenu-item ">
+                                    <a href="layout-horizontal.html">Horizontal Menu</a>
+                                </li>
+                            </ul>
+                        </li> -->
+
+                        <!-- <li class="sidebar-title">Forms &amp; Tables</li> -->
+
+                        <!-- <li class="sidebar-item  has-sub">
+                            <a href="#" class='sidebar-link'>
+                                <i class="bi bi-hexagon-fill"></i>
+                                <span>Form Elements</span>
+                            </a>
+                            <ul class="submenu ">
+                                <li class="submenu-item ">
+                                    <a href="form-element-input.html">Input</a>
+                                </li>
+                                <li class="submenu-item ">
+                                    <a href="form-element-input-group.html">Input Group</a>
+                                </li>
+                                <li class="submenu-item ">
+                                    <a href="form-element-select.html">Select</a>
+                                </li>
+                                <li class="submenu-item ">
+                                    <a href="form-element-radio.html">Radio</a>
+                                </li>
+                                <li class="submenu-item ">
+                                    <a href="form-element-checkbox.html">Checkbox</a>
+                                </li>
+                                <li class="submenu-item ">
+                                    <a href="form-element-textarea.html">Textarea</a>
+                                </li>
+                            </ul>
+                        </li> -->
+
+
+                        <li class="sidebar-item  has-sub">
+                            <a href="#" class='sidebar-link'>
+                                <i class="bi bi-menu-button-wide-fill"></i>
+                                <span>Tables & form</span>
+                            </a>
+                            <ul class="submenu ">
+                                <li class="submenu-item ">
+
+                                    <a href="/table">Tables</a>
+                                </li>
+
+                                <li class="submenu-item ">
+                                    <a href="/create">Create company form</a>
+                                </li>
+                                <!-- <li class="submenu-item ">
+                                    <a href="/top10">Top 10</a>
+                                </li> -->
+                            </ul>
+                        </li>
+
+
+                        <li class="sidebar-item  has-sub">
+                            <a href="#" class='sidebar-link'>
+                                <i class="bi bi-egg-fill"></i>
+                                <span>Icons</span>
+                            </a>
+                            <ul class="submenu ">
+                                <li class="submenu-item ">
+                                    <a href="ui-icons-bootstrap-icons.html">Bootstrap Icons </a>
+                                </li>
+                                <li class="submenu-item ">
+                                    <a href="ui-icons-fontawesome.html">Fontawesome</a>
+                                </li>
+                                <li class="submenu-item ">
+                                    <a href="ui-icons-dripicons.html">Dripicons</a>
+                                </li>
+                            </ul>
+                        </li>
+
+
+
+
+
+
+
+
+                        <!--                        
+                        <li class="sidebar-item  ">
+                            <a href="/create" class='sidebar-link'>
+                                <i class="bi bi-pen-fill"></i>
+                                <span>Create company form</span>
+                            </a>
+                        </li>
+
+                        <li class="sidebar-item  ">
+                            <a href="/table" class='sidebar-link'>
+                                <i class="bi bi-file-earmark-spreadsheet-fill"></i>
+                                <span>Table</span>
+                            </a>
+                        </li> -->
+
+                        <!-- <li class="sidebar-item  has-sub">
+                            <a href="#" class='sidebar-link'>
+                                <i class="bi bi-pen-fill"></i>
+                                <span>Form Editor</span>
+                            </a>
+                            <ul class="submenu ">
+                                <li class="submenu-item ">
+                                    <a href="form-editor-quill.html">Quill</a>
+                                </li>
+                                <li class="submenu-item ">
+                                    <a href="form-editor-ckeditor.html">CKEditor</a>
+                                </li>
+                                <li class="submenu-item ">
+                                    <a href="form-editor-summernote.html">Summernote</a>
+                                </li>
+                                <li class="submenu-item ">
+                                    <a href="form-editor-tinymce.html">TinyMCE</a>
+                                </li>
+                            </ul>
+                        </li> -->
+
+                        <!-- <li class="sidebar-item  ">
+                            <a href="/top10" class='sidebar-link'>
+                                <i class="bi bi-align-top"></i>
+                                <span>Top 10 investor</span>
+                            </a>
+                        </li>
+
+                        -->
+
+                        <!-- <li class="sidebar-title">Dashboard</li> -->
+
+                        <!-- <li class="sidebar-item  has-sub">
+                            <a href="#" class='sidebar-link'>
+                                <i class="bi bi-pentagon-fill"></i>
+                                <span>Widgets</span>
+                            </a>
+                            <ul class="submenu ">
+                                <li class="submenu-item ">
+                                    <a href="ui-widgets-chatbox.html">Chatbox</a>
+                                </li>
+                                <li class="submenu-item ">
+                                    <a href="ui-widgets-pricing.html">Pricing</a>
+                                </li>
+                                <li class="submenu-item ">
+                                    <a href="ui-widgets-todolist.html">To-do List</a>
+                                </li>
+                            </ul>
+                        </li> -->
+
+                        <!-- <li class="sidebar-item  has-sub">
+                            <a href="#" class='sidebar-link'>
+                                <i class="bi bi-egg-fill"></i>
+                                <span>Icons</span>
+                            </a>
+                            <ul class="submenu ">
+                                <li class="submenu-item ">
+                                    <a href="ui-icons-bootstrap-icons.html">Bootstrap Icons </a>
+                                </li>
+                                <li class="submenu-item ">
+                                    <a href="ui-icons-fontawesome.html">Fontawesome</a>
+                                </li>
+                                <li class="submenu-item ">
+                                    <a href="ui-icons-dripicons.html">Dripicons</a>
+                                </li>
+                            </ul>
+                        </li> -->
+
+
+
+                        <!-- <li class="sidebar-item  ">
+                            <a href="ui-file-uploader.html" class='sidebar-link'>
+                                <i class="bi bi-cloud-arrow-up-fill"></i>
+                                <span>File Uploader</span>
+                            </a>
+                        </li> -->
+
+                        <!-- <li class="sidebar-item  has-sub">
+                            <a href="#" class='sidebar-link'>
+                                <i class="bi bi-map-fill"></i>
+                                <span>Maps</span>
+                            </a>
+                            <ul class="submenu ">
+                                <li class="submenu-item ">
+                                    <a href="ui-map-google-map.html">Google Map</a>
+                                </li>
+                                <li class="submenu-item ">
+                                    <a href="ui-map-jsvectormap.html">JS Vector Map</a>
+                                </li>
+                            </ul>
+                        </li> -->
+
+                        <!-- <li class="sidebar-title">Login & Register</li> -->
+
+                        <!-- <li class="sidebar-item  ">
+                            <a href="application-email.html" class='sidebar-link'>
+                                <i class="bi bi-envelope-fill"></i>
+                                <span>Email Application</span>
+                            </a>
+                        </li>
+
+                        <li class="sidebar-item  ">
+                            <a href="application-chat.html" class='sidebar-link'>
+                                <i class="bi bi-chat-dots-fill"></i>
+                                <span>Chat Application</span>
+                            </a>
+                        </li>
+
+                        <li class="sidebar-item  ">
+                            <a href="application-gallery.html" class='sidebar-link'>
+                                <i class="bi bi-image-fill"></i>
+                                <span>Photo Gallery</span>
+                            </a>
+                        </li>
+
+                        <li class="sidebar-item  ">
+                            <a href="application-checkout.html" class='sidebar-link'>
+                                <i class="bi bi-basket-fill"></i>
+                                <span>Checkout Page</span>
+                            </a>
+                        </li> -->
+
+                        <li class="sidebar-title">Authentication</li>
+                        <li class="sidebar-item  has-sub">
+                            <a href="#" class='sidebar-link'>
+                                <i class="bi bi-person-badge-fill"></i>
+                                <span>Login & Register</span>
+                            </a>
+                            <ul class="submenu ">
+                                <li class="submenu-item ">
+                                    <a href="/logintest">Login</a>
+                                </li>
+                                <li class="submenu-item ">
+                                    <a href="/register">Register</a>
+                                </li>
+                            </ul>
+                        </li>
+
+                        <!-- <li class="sidebar-item  has-sub">
+                            <a href="#" class='sidebar-link'>
+                                <i class="bi bi-x-octagon-fill"></i>
+                                <span>Errors</span>
+                            </a>
+                            <ul class="submenu ">
+                                <li class="submenu-item ">
+                                    <a href="error-403.html">403</a>
+                                </li>
+                                <li class="submenu-item ">
+                                    <a href="error-404.html">404</a>
+                                </li>
+                                <li class="submenu-item ">
+                                    <a href="error-500.html">500</a>
+                                </li>
+                            </ul>
+                        </li> -->
+
+                        <!-- <li class="sidebar-title">Raise Support</li>
+
+                        <li class="sidebar-item  ">
+                            <a href="https://zuramai.github.io/mazer/docs" class='sidebar-link'>
+                                <i class="bi bi-life-preserver"></i>
+                                <span>Documentation</span>
+                            </a>
+                        </li>
+
+                        <li class="sidebar-item  ">
+                            <a href="https://github.com/zuramai/mazer/blob/main/CONTRIBUTING.md" class='sidebar-link'>
+                                <i class="bi bi-puzzle"></i>
+                                <span>Contribute</span>
+                            </a>
+                        </li>
+
+                        <li class="sidebar-item  ">
+                            <a href="https://github.com/zuramai/mazer#donate" class='sidebar-link'>
+                                <i class="bi bi-cash"></i>
+                                <span>Donate</span>
+                            </a>
+                        </li> -->
+
+                    </ul>
+                </div>
+                <button class="sidebar-toggler btn x"><i data-feather="x"></i></button>
+            </div>
+        </div>
+        <div id="main">
+            <header class="mb-3">
+                <a href="#" class="burger-btn d-block d-xl-none">
+                    <i class="bi bi-justify fs-3"></i>
+                </a>
+            </header>
+
+            <div class="page-heading">
+                <div class="page-title">
+                    <div class="row">
+                        <div class="col-12 col-md-6 order-md-1 order-last">
+                            <h3>Total chart all company</h3>
+                            <!-- <p class="text-subtitle text-muted">กราฟแสดงยอดรวมของบริษัททั้งหมดในสหราชอาณาจักร(UK) </p> -->
+                        </div>
+                        <div class="col-12 col-md-6 order-md-2 order-first">
+                            <nav aria-label="breadcrumb" class="breadcrumb-header float-start float-lg-end">
+                                <ol class="breadcrumb">
+
+
+                                    <div class="col-md-11 mb-3">
+                                        <form action="/DashTotalComTest" method="post">
+                                            <div class="input-group mb-6">
+                                                <span class="input-group-text" id="basic-addon1"><i
+                                                        class="bi bi-search"></i></span>
+                                                <input type="number" id="company_id" name="company_id"
+                                                    class="form-control" placeholder="Enter Company ID"
+                                                    aria-label="Enter Company ID" aria-describedby="button-addon2"
+                                                    required>
+                                                <button class="btn btn-outline-secondary" type="submit"
+                                                    id="button-addon2">Search</button>
+                                            </div>
+                                        </form>
+                                    </div>
+
+
+                                </ol>
+                            </nav>
+                        </div>
+                    </div>
+                </div>
+
+                <!DOCTYPE html>
+                <html lang="en">
+
+                <head>
+                    <meta charset="UTF-8">
+                    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+                    <title>Charts with ApexCharts</title>
+                    <script src="https://cdn.jsdelivr.net/npm/apexcharts"></script>
+                </head>
+
+                <body>
+                    <section class="section">
+                        <div class="row">
+                            <div class="col-md-6">
+                                <div class="card">
+                                    <div class="card-header">
+                                        <h4 class="card-title">Bar Chart</h4>
+                                    </div>
+                                    <div class="card-body">
+                                        <div id="barChart"></div>
+                                        <script>
+                                            // ข้อมูลพนักงานในบริษัท
+                                            const totalPeopleCount = {{ total_people_count }};
+                                            const totalSeniorPeopleCount = {{ total_senior_people_count }};
+
+                                            // คอนฟิก ApexChart
+                                            var barOptions = {
+                                                series: [{
+                                                    name: 'Amount',
+                                                    data: [totalPeopleCount, totalSeniorPeopleCount]
+                                                }],
+                                                chart: {
+                                                    height: 350,
+                                                    type: 'bar',
+                                                },
+                                                colors: ['#FF0000', '#FFA500'], // ตัวอย่างสีของบาร์
+                                                plotOptions: {
+                                                    bar: {
+                                                        columnWidth: '45%',
+                                                        distributed: true,
+                                                        borderRadius: 5
+                                                    }
+                                                },
+                                                dataLabels: {
+                                                    enabled: false
+                                                },
+                                                legend: {
+                                                    show: false
+                                                },
+                                                xaxis: {
+                                                    categories: ["Total People Count", "Total Senior People Count"],
+                                                    labels: {
+                                                        style: {
+                                                            colors: ['#FF0000', '#FFA500'],
+                                                            fontSize: '12px'
+                                                        }
+                                                    }
+                                                },
+                                                yaxis: {
+                                                    min: 0,
+                                                    max: totalPeopleCount + 20, // ปรับค่าสูงสุดตามข้อมูล
+                                                    title: {
+                                                        text: 'Number of Employees'
+                                                    }
+                                                },
+                                                title: {
+                                                    text: 'Total Company Employee',
+                                                    align: 'center'
+                                                }
+                                            };
+
+                                            var barChart = new ApexCharts(document.querySelector("#barChart"), barOptions);
+                                            barChart.render();
+                                        </script>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="col-md-6">
+                                <div class="card">
+                                    <div class="card-header">
+                                        <h4 class="card-title">Custom Angle Circle Chart</h4>
+                                    </div>
+                                    <div class="card-body">
+                                        <div id="circleChart"></div>
+                                        <script type="text/javascript">
+                                            // ดึงข้อมูลจากตัวแปรที่มาจากฝั่งเซิร์ฟเวอร์
+                                            const totalEmailsCount = {{ total_emails_count }};
+                                            const totalPersonalEmailsCount = {{ total_personal_emails_count }};
+                                            const totalPhonesCount = {{ total_phones_count }};
+                                            const totalAddressesCount = {{ total_addresses_count }};
+
+                                            var chartColors = {
+                                                blue: '#6d6875',
+                                                fuchsia: '#b5838d',
+                                                green: '#e5989b',
+                                                peacock: '#ffcdb2'
+                                            };
+
+                                            // คำนวณเปอร์เซ็นต์สำหรับแต่ละประเภท
+                                            const total = totalEmailsCount + totalPersonalEmailsCount + totalPhonesCount + totalAddressesCount;
+
+                                            const percentageEmails = (totalEmailsCount / total) * 100;
+                                            const percentagePersonalEmails = (totalPersonalEmailsCount / total) * 100;
+                                            const percentagePhones = (totalPhonesCount / total) * 100;
+                                            const percentageAddresses = (totalAddressesCount / total) * 100;
+
+                                            var circleOptions = {
+                                                series: [percentageEmails, percentagePersonalEmails, percentagePhones, percentageAddresses], // ใส่ค่าที่เป็นเปอร์เซ็นต์
+                                                chart: {
+                                                    height: 390,
+                                                    type: 'radialBar'
+                                                },
+                                                plotOptions: {
+                                                    radialBar: {
+                                                        offsetY: 0,
+                                                        startAngle: 0,
+                                                        endAngle: 270,
+                                                        hollow: {
+                                                            margin: 5,
+                                                            size: '30%',
+                                                            background: 'transparent',
+                                                            image: undefined
+                                                        },
+                                                        dataLabels: {
+                                                            name: {
+                                                                show: true,
+                                                                fontSize: '16px', // ขนาดของชื่อ
+                                                                color: undefined, // สีของชื่อ
+                                                                offsetY: -10 // ระยะห่างจากกลางกราฟ
+                                                            },
+                                                            value: {
+                                                                show: true,
+                                                                formatter: function (val) {
+                                                                    return val.toFixed(2) + "%"; // แสดงเปอร์เซ็นต์ให้มีทศนิยม 2 ตำแหน่ง
+                                                                }
+                                                            },
+                                                            barLabels: {
+                                                                enabled: true,
+                                                                useSeriesColors: true,
+                                                                offsetX: -8,
+                                                                fontSize: '16px',
+                                                                formatter: function (seriesName, opts) {
+                                                                    return seriesName + ":  " + opts.w.globals.series[opts.seriesIndex]
+                                                                },
+                                                            },
+                                                        }
+                                                    }
+                                                },
+                                                colors: [chartColors.blue, chartColors.fuchsia, chartColors.green, chartColors.peacock],
+                                                labels: ['Emails', 'Personal Emails', 'Phones', 'Addresses'],
+                                                responsive: [{
+                                                    breakpoint: 480,
+                                                    options: {
+                                                        legend: {
+                                                            show: false
+                                                        }
+                                                    }
+                                                }]
+                                            };
+
+                                            var circleChart = new ApexCharts(document.querySelector("#circleChart"), circleOptions);
+                                            circleChart.render();
+                                        </script>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="row">
+                            <div class="col-md-6">
+                                <div class="card">
+                                    <div class="card-header">
+                                        <h4 class="card-title">Radar Chart</h4>
+                                    </div>
+                                    <div class="card-body">
+                                        <div id="radarChart"></div>
+                                        <script type="text/javascript">
+                                            // ดึงข้อมูลจากตัวแปรที่มาจากฝั่งเซิร์ฟเวอร์
+                                            const totalInvestorsCount = {{ total_investors_count }};
+                                            const totalClientsCount = {{ total_clients_count }};
+                                            const totalPartnersCount = {{ total_partners_count }};
+
+                                            // คำนวณเปอร์เซ็นต์
+                                            const total = totalInvestorsCount + totalClientsCount + totalPartnersCount;
+
+                                            const percentageInvestors = (totalInvestorsCount / total) * 100;
+                                            const percentageClients = (totalClientsCount / total) * 100;
+                                            const percentagePartners = (totalPartnersCount / total) * 100;
+
+                                            var radarOptions = {
+                                                series: [{
+                                                    name: 'Investors',
+                                                    data: [percentageInvestors],
+                                                }, {
+                                                    name: 'Clients',
+                                                    data: [percentageClients],
+                                                }, {
+                                                    name: 'Partners',
+                                                    data: [percentagePartners],
+                                                }],
+                                                chart: {
+                                                    height: 350,
+                                                    type: 'radar',
+                                                    dropShadow: {
+                                                        enabled: true,
+                                                        blur: 1,
+                                                        left: 1,
+                                                        top: 1
+                                                    }
+                                                },
+                                                title: {
+                                                    text: 'Radar Chart - Multi Series'
+                                                },
+                                                stroke: {
+                                                    width: 2
+                                                },
+                                                fill: {
+                                                    opacity: 0.1
+                                                },
+                                                markers: {
+                                                    size: 0
+                                                },
+                                                yaxis: {
+                                                    stepSize: 20
+                                                },
+                                                xaxis: {
+                                                    categories: ['Investors', 'Clients', 'Partners']
+                                                }
+                                            };
+
+                                            var radarChart = new ApexCharts(document.querySelector("#radarChart"), radarOptions);
+                                            radarChart.render();
+                                        </script>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="col-md-6">
+                                <div class="card">
+                                    <div class="card-header">
+                                        <h4 class="card-title">Polar Area Chart</h4>
+                                    </div>
+                                    <div class="card-body">
+                                        <div id="polarChart"></div>
+                                        <script type="text/javascript">
+                                            // ดึงข้อมูลจากตัวแปรที่มาจากฝั่งเซิร์ฟเวอร์จ้า
+                                            const totalChangesCount = {{ total_changes_count }};
+                                            const totalPeopleChangesCount = {{ total_people_changes_count }};
+                                            const totalContactChangesCount = {{ total_contact_changes_count }};
+
+                                            // คำนวณเปอร์เซ็นต์
+                                            const total = totalChangesCount + totalPeopleChangesCount + totalContactChangesCount;
+
+                                            const percentageChanges = (totalChangesCount / total) * 100;
+                                            const percentagePeopleChanges = (totalPeopleChangesCount / total) * 100;
+                                            const percentageContactChanges = (totalContactChangesCount / total) * 100;
+
+                                            var polarOptions = {
+                                                series: [percentageChanges, percentagePeopleChanges, percentageContactChanges],
+                                                chart: {
+                                                    type: 'polarArea',
+                                                    height: 350
+                                                },
+                                                stroke: {
+                                                    colors: ['#fff']
+                                                },
+                                                fill: {
+                                                    opacity: 0.8
+                                                },
+                                                labels: ['Total Changes', 'People Changes', 'Contact Changes'],
+                                                responsive: [{
+                                                    breakpoint: 480,
+                                                    options: {
+                                                        chart: {
+                                                            width: 200
+                                                        },
+                                                        legend: {
+                                                            position: 'bottom'
+                                                        }
+                                                    }
+                                                }]
+                                            };
+
+                                            var polarChart = new ApexCharts(document.querySelector("#polarChart"), polarOptions);
+                                            polarChart.render();
+                                        </script>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </section>
+                </body>
+
+                </html>
+
+            </div>
+
+            <footer>
+                <div class="footer clearfix mb-0 text-muted">
+                    <div class="float-start">
+                        <p>2021 &copy; Mazer</p>
+                    </div>
+                    <div class="float-end">
+                        <p>Crafted with <span class="text-danger"><i class="bi bi-heart"></i></span> by <a
+                                href="http://ahmadsaugi.com">A. Saugi</a></p>
+                    </div>
+                </div>
+            </footer>
+        </div>
+    </div>
+    <script
+        src="https://themewagon.github.io/mazer/dist/assets/vendors/perfect-scrollbar/perfect-scrollbar.min.js"></script>
+    <script src="https://themewagon.github.io/mazer/dist/assets/js/bootstrap.bundle.min.js"></script>
+
+    <script src="https://themewagon.github.io/mazer/dist/assets/vendors/dayjs/dayjs.min.js"></script>
+    <script src="https://themewagon.github.io/mazer/dist/assets/vendors/apexcharts/apexcharts.js"></script>
+    <script src="https://themewagon.github.io/mazer/dist/assets/js/pages/ui-apexchart.js"></script>
+
+
+
+    <script src="https://themewagon.github.io/mazer/dist/assets/js/main.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/apexcharts"></script>
+
+</body>
+
+</html>
